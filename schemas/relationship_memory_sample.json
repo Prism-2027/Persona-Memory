@@ -1,0 +1,205 @@
+{
+  "_id": "REL_USER001_PERSON001",
+  "user_id": "USER_001",
+  "person_id": "PERSON_001",
+
+  "identity": {
+    "name": "Rahul",
+    "aliases": ["Rahul Sharma", "Bro"],
+    "role": "close_friend",
+    "contact_identifiers": {
+      "phone": "+91-9876543210",
+      "email": "rahul@example.com"
+    }
+  },
+
+  "scores": {
+    "closeness": {
+      "value": 0.9,
+      "source": "stated",
+      "confidence": 1.0,
+      "updated_at": "2026-11-15T10:00:00+05:30",
+      "evidence_ids": ["PERSONA_BANK_SEED_01"]
+    },
+    "trust": {
+      "value": 0.85,
+      "source": "inferred",
+      "confidence": 0.8,
+      "updated_at": "2026-11-19T18:00:00+05:30",
+      "evidence_ids": ["EP_042"]
+    },
+    "importance": {
+      "value": 0.9,
+      "source": "inferred",
+      "confidence": 0.85,
+      "updated_at": "2026-11-19T18:00:00+05:30",
+      "evidence_ids": ["EP_042", "EP_045"]
+    }
+  },
+
+  "tie_state": {
+    "current_status": "active_positive",
+    "recent_tension": false,
+    "last_interaction_at": "2026-11-19T21:15:00+05:30",
+    "interaction_pattern": "rarely_calls_unless_urgent",
+    "relationship_trend": "stable",
+    "source": "inferred",
+    "confidence": 0.85,
+    "evidence_ids": ["EP_042", "EP_045"]
+  },
+
+  "interaction_stats": {
+    "total_interactions": 120,
+    "calls_count": 35,
+    "messages_count": 75,
+    "meetings_count": 10,
+    "average_interactions_per_week": 8,
+    "average_response_time_minutes": 12,
+    "user_initiation_ratio": 0.4,
+    "other_person_initiation_ratio": 0.6,
+    "calculation_period_days": 90,
+    "updated_at": "2026-11-20T10:00:00+05:30"
+  },
+
+  "communication_preferences": {
+    "preferred_channels": ["call", "whatsapp"],
+    "preferred_contact_times": ["evening", "afternoon"],
+    "typical_response_behavior": "responds_quickly",
+    "call_answering_tendency": "usually_answers",
+    "message_reply_tendency": "replies_within_15_minutes",
+    "source": "inferred",
+    "confidence": 0.85,
+    "evidence_ids": ["EP_042", "EP_045"]
+  },
+
+  "behavioral_patterns": {
+    "user_behavior": [
+      {
+        "pattern": "usually_answers_calls",
+        "frequency": "frequent",
+        "confidence": 0.9,
+        "source": "inferred",
+        "evidence_ids": ["EP_042"]
+      },
+      {
+        "pattern": "frequently_discusses_academic_and_personal_matters",
+        "frequency": "frequent",
+        "confidence": 0.85,
+        "source": "inferred",
+        "evidence_ids": ["EP_045"]
+      },
+      {
+        "pattern": "prioritizes_academic_work_during_exams",
+        "frequency": "occasional",
+        "confidence": 0.88,
+        "source": "inferred",
+        "evidence_ids": ["EP_046"]
+      }
+    ],
+    "other_person_behavior": [
+      {
+        "pattern": "usually_initiates_calls_for_important_discussions",
+        "frequency": "occasional",
+        "confidence": 0.82,
+        "source": "inferred",
+        "evidence_ids": ["EP_042"]
+      },
+      {
+        "pattern": "regularly_shares_personal_updates",
+        "frequency": "frequent",
+        "confidence": 0.85,
+        "source": "inferred",
+        "evidence_ids": ["EP_045"]
+      }
+    ],
+    "observed_since": "2026-09-01",
+    "updated_at": "2026-11-20T10:00:00+05:30"
+  },
+
+  "relationship_boundaries": {
+    "known_boundaries": [
+      "Prefers not to discuss highly personal matters in group conversations"
+    ],
+    "sensitive_topics": [
+      "Personal family matters"
+    ],
+    "interaction_restrictions": [
+      "Avoid sharing private conversations without user approval"
+    ],
+    "source": "stated",
+    "confidence": 1.0,
+    "evidence_ids": ["EP_050"]
+  },
+
+  "shared_context": {
+    "known_connections": [
+      "College",
+      "Mutual friends"
+    ],
+    "shared_activities": [
+      "Gaming",
+      "College events",
+      "Casual outings"
+    ],
+    "common_interests": [
+      "Technology",
+      "Gaming",
+      "Movies"
+    ],
+    "significant_shared_events": [
+      {
+        "event_id": "EP_030",
+        "description": "Attended a college event together",
+        "timestamp": "2026-10-15T18:00:00+05:30"
+      },
+      {
+        "event_id": "EP_042",
+        "description": "Had a long personal conversation",
+        "timestamp": "2026-11-10T20:30:00+05:30"
+      }
+    ]
+  },
+
+  "reciprocity": {
+    "conversation_initiation_balance": 0.6,
+    "support_balance": "mutual",
+    "interaction_reciprocity": 0.85,
+    "source": "inferred",
+    "confidence": 0.82,
+    "evidence_ids": ["EP_042", "EP_045"]
+  },
+
+  "last_significant_event": {
+    "event_id": "EP_045",
+    "description": "User answered Rahul's call during a busy academic schedule",
+    "event_type": "meaningful_interaction",
+    "timestamp": "2026-11-19T21:15:00+05:30",
+    "impact_on_relationship": "positive"
+  },
+
+  "score_history": [
+    {
+      "metric": "closeness",
+      "old_value": 0.8,
+      "new_value": 0.9,
+      "reason": "User explicitly identified Rahul as a close friend",
+      "evidence_id": "PERSONA_BANK_SEED_01",
+      "timestamp": "2026-11-15T10:00:00+05:30"
+    },
+    {
+      "metric": "trust",
+      "old_value": 0.8,
+      "new_value": 0.85,
+      "reason": "Repeated personal conversations and mutual support",
+      "evidence_id": "EP_042",
+      "timestamp": "2026-11-19T18:00:00+05:30"
+    }
+  ],
+
+  "metadata": {
+    "created_at": "2026-09-01T10:00:00+05:30",
+    "updated_at": "2026-11-20T10:00:00+05:30",
+    "last_verified_at": "2026-11-15T10:00:00+05:30",
+    "schema_version": "2.0"
+  }
+}
