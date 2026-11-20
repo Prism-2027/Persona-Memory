@@ -7,10 +7,10 @@
     "name": "Rahul",
     "aliases": ["Rahul Sharma", "Bro"],
     "role": "close_friend",
-    "contact_identifiers": {
-      "phone": "+91-9876543210",
-      "email": "rahul@example.com"
-    }
+    "contact_identifiers": [
+      { "platform": "phone", "value": "+91-9876543210" },
+      { "platform": "email", "value": "rahul@example.com" }
+    ]
   },
 
   "scores": {
@@ -40,9 +40,10 @@
   "tie_state": {
     "current_status": "active_positive",
     "recent_tension": false,
-    "last_interaction_at": "2026-11-19T21:15:00+05:30",
-    "interaction_pattern": "rarely_calls_unless_urgent",
     "relationship_trend": "stable",
+    "support_balance": "mutual",
+    "interaction_reciprocity": 0.85,
+    "last_interaction_at": "2026-11-19T21:15:00+05:30",
     "source": "inferred",
     "confidence": 0.85,
     "evidence_ids": ["EP_042", "EP_045"]
@@ -64,9 +65,6 @@
   "communication_preferences": {
     "preferred_channels": ["call", "whatsapp"],
     "preferred_contact_times": ["evening", "afternoon"],
-    "typical_response_behavior": "responds_quickly",
-    "call_answering_tendency": "usually_answers",
-    "message_reply_tendency": "replies_within_15_minutes",
     "source": "inferred",
     "confidence": 0.85,
     "evidence_ids": ["EP_042", "EP_045"]
@@ -82,25 +80,25 @@
         "evidence_ids": ["EP_042"]
       },
       {
+        "pattern": "replies_to_messages_within_15_minutes",
+        "frequency": "frequent",
+        "confidence": 0.85,
+        "source": "inferred",
+        "evidence_ids": ["EP_042", "EP_045"]
+      },
+      {
         "pattern": "frequently_discusses_academic_and_personal_matters",
         "frequency": "frequent",
         "confidence": 0.85,
         "source": "inferred",
         "evidence_ids": ["EP_045"]
-      },
-      {
-        "pattern": "prioritizes_academic_work_during_exams",
-        "frequency": "occasional",
-        "confidence": 0.88,
-        "source": "inferred",
-        "evidence_ids": ["EP_046"]
       }
     ],
     "other_person_behavior": [
       {
-        "pattern": "usually_initiates_calls_for_important_discussions",
+        "pattern": "rarely_calls_unless_urgent_or_important",
         "frequency": "occasional",
-        "confidence": 0.82,
+        "confidence": 0.85,
         "source": "inferred",
         "evidence_ids": ["EP_042"]
       },
@@ -132,49 +130,32 @@
   },
 
   "shared_context": {
-    "known_connections": [
-      "College",
-      "Mutual friends"
-    ],
-    "shared_activities": [
-      "Gaming",
-      "College events",
-      "Casual outings"
-    ],
-    "common_interests": [
-      "Technology",
-      "Gaming",
-      "Movies"
-    ],
+    "known_connections": ["College", "Mutual friends"],
+    "shared_activities": ["Gaming", "College events", "Casual outings"],
+    "common_interests": ["Technology", "Gaming", "Movies"],
     "significant_shared_events": [
       {
         "event_id": "EP_030",
+        "event_type": "shared_activity",
         "description": "Attended a college event together",
+        "impact_on_relationship": "positive",
         "timestamp": "2026-10-15T18:00:00+05:30"
       },
       {
         "event_id": "EP_042",
+        "event_type": "meaningful_interaction",
         "description": "Had a long personal conversation",
+        "impact_on_relationship": "positive",
         "timestamp": "2026-11-10T20:30:00+05:30"
+      },
+      {
+        "event_id": "EP_045",
+        "event_type": "meaningful_interaction",
+        "description": "User answered Rahul's call during a busy academic schedule",
+        "impact_on_relationship": "positive",
+        "timestamp": "2026-11-19T21:15:00+05:30"
       }
     ]
-  },
-
-  "reciprocity": {
-    "conversation_initiation_balance": 0.6,
-    "support_balance": "mutual",
-    "interaction_reciprocity": 0.85,
-    "source": "inferred",
-    "confidence": 0.82,
-    "evidence_ids": ["EP_042", "EP_045"]
-  },
-
-  "last_significant_event": {
-    "event_id": "EP_045",
-    "description": "User answered Rahul's call during a busy academic schedule",
-    "event_type": "meaningful_interaction",
-    "timestamp": "2026-11-19T21:15:00+05:30",
-    "impact_on_relationship": "positive"
   },
 
   "score_history": [
@@ -183,7 +164,7 @@
       "old_value": 0.8,
       "new_value": 0.9,
       "reason": "User explicitly identified Rahul as a close friend",
-      "evidence_id": "PERSONA_BANK_SEED_01",
+      "evidence_ids": ["PERSONA_BANK_SEED_01"],
       "timestamp": "2026-11-15T10:00:00+05:30"
     },
     {
@@ -191,7 +172,7 @@
       "old_value": 0.8,
       "new_value": 0.85,
       "reason": "Repeated personal conversations and mutual support",
-      "evidence_id": "EP_042",
+      "evidence_ids": ["EP_042"],
       "timestamp": "2026-11-19T18:00:00+05:30"
     }
   ],
