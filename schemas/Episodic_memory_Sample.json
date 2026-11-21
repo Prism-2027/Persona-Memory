@@ -1,0 +1,33 @@
+{
+  "_id": "EP_045",
+  "user_id": "USER_001",
+  "situation_id": "SIT_001",
+  "timestamp": "2026-11-18T14:00:00+05:30",
+  "entities_involved": ["PERSON_001"],
+  "context_summary": {
+    "situation_type": "communication",
+    "situation_subtype": "incoming_call",
+    "user_activity": "critical_meeting",
+    "stress_level": "high",
+    "trigger_summary": "Rahul called twice in 5 minutes during a calendar block"
+  },
+  "outcome": {
+    "predicted_action": "ignore_call",
+    "actual_user_action": "sent_quick_text_reassuring_and_giving_free_time",
+    "prediction_matched": false,
+    "user_rationale": "Didn't want Rahul to worry; wanted him to know I'd call back at 4 PM",
+    "emotional_valence": "guilty_then_relieved"
+  },
+  "follow_up": {
+    "required": true,
+    "promised_action": "Call Rahul at 4 PM",
+    "deadline": "2026-11-18T16:00:00+05:30",
+    "status": "completed",
+    "completed_at": "2026-11-18T16:05:00+05:30"
+  },
+  "memory_impact": {
+    "updated_collections": ["relationships", "value_model"],
+    "learning_note": "User prioritizes reassuring close friends even during high-stress meetings"
+  },
+  "tags": ["incoming_call", "close_friend", "meeting_conflict", "high_stress"]
+}
