@@ -1,0 +1,50 @@
+{
+  "_id": "VAL_003",
+  "user_id": "USER_001",
+
+  "value_name": "Reassurance in Close Relationships",
+  "category": "hard_rule",
+  "domain": "communication",
+
+  "statement": "The user prefers to reassure close friends and family rather than leave repeated calls unanswered, even during busy periods.",
+
+  "behavioral_preference": {
+  "preferred_action": "Send a brief reassuring message and provide a callback time",
+  "avoid_actions": [
+    "Completely ignoring repeated calls without reassurance",
+    "Sending a generic automated carrier reply"
+  ],
+  "tone_guidance": "warm, brief, reassuring, never robotic"
+},
+
+  "priority_weight": 0.95,
+
+  "conditions": {
+    "applies_to_roles": ["close_friend", "family"],
+    "min_closeness": 0.8,
+    "trigger": "repeated_incoming_calls"
+  },
+
+  "exceptions": [
+    "driving",
+    "in_exam",
+    "sleeping"
+  ],
+
+  "provenance": {
+    "source": "inferred",
+    "confidence": 0.88,
+    "created_at": "2026-11-15T10:00:00+05:30",
+    "last_validated_at": "2026-11-18T14:05:00+05:30",
+    "supporting_episodes": ["EP_045"],
+    "contradicting_episodes": []
+  },
+
+  "validation": {
+    "status": "provisional",
+    "needs_user_confirmation": true,
+    "contradiction_count": 0
+  },
+
+  "active": true
+}
