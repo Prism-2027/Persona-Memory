@@ -1,0 +1,281 @@
+{
+  "schema_version": "1.0",
+  "situation_id": "SIT_001",
+  "user_id": "USER_001",
+
+  "timestamps": {
+    "situation_detected_at": "2026-11-20T10:30:00+05:30",
+    "first_event_at": "2026-11-20T10:29:00+05:30",
+    "last_event_at": "2026-11-20T10:30:00+05:30",
+    "snapshot_generated_at": "2026-11-20T10:30:02+05:30"
+  },
+
+  "trigger": {
+    "primary_event_type": "incoming_call",
+    "primary_source": "phone",
+    "trigger_event_id": "EVT_001",
+    "trigger_description": "Incoming call received"
+  },
+
+  "entities": {
+    "people": [
+      {
+        "person_id": "PERSON_001",
+        "name": "Rahul",
+        "role_in_situation": "caller",
+        "contact_identifier": null
+      }
+    ],
+    "organizations": [],
+    "locations": [],
+    "devices": []
+  },
+
+  "communication": {
+    "phone_call": {
+      "available": true,
+      "call_id": "CALL_001",
+      "caller_id": "PERSON_001",
+      "phone_number": null,
+      "direction": "incoming",
+      "call_status": "ringing",
+      "call_start_time": null,
+      "call_end_time": null,
+      "call_duration_seconds": null,
+      "missed_call": false,
+      "call_frequency": 3,
+      "previous_interaction_count": null,
+      "last_interaction": null
+    },
+
+    "whatsapp": {
+      "available": null,
+      "message_id": null,
+      "conversation_id": null,
+      "sender_id": null,
+      "receiver_id": null,
+      "direction": null,
+      "message_type": null,
+      "message_text": null,
+      "message_timestamp": null,
+      "is_group_message": null,
+      "group_name": null,
+      "reply_received": null,
+      "reply_time": null,
+      "attachment_type": null,
+      "attachment_description": null,
+      "unread_message_count": null,
+      "message_frequency": null,
+      "conversation_context": null
+    },
+
+    "sms": {
+      "available": null,
+      "message_id": null,
+      "sender_id": null,
+      "receiver_id": null,
+      "direction": null,
+      "message_text": null,
+      "message_timestamp": null,
+      "is_unread": null,
+      "attachment_type": null
+    },
+
+    "email": {
+      "available": null,
+      "email_id": null,
+      "thread_id": null,
+      "sender_id": null,
+      "sender_email": null,
+      "recipient_ids": [],
+      "cc_ids": [],
+      "subject": null,
+      "body_summary": null,
+      "message_timestamp": null,
+      "is_read": null,
+      "is_important": null,
+      "priority": null,
+      "requires_response": null,
+      "extracted_intent": null,
+      "extracted_deadline": null,
+      "attachment_types": [],
+      "conversation_context": null
+    },
+
+    "other_messaging_apps": {
+      "available": null,
+      "platform": null,
+      "message_id": null,
+      "conversation_id": null,
+      "sender_id": null,
+      "message_type": null,
+      "message_summary": null,
+      "message_timestamp": null,
+      "requires_response": null
+    }
+  },
+
+  "digital_activity": {
+    "screen_state": null,
+    "phone_locked": null,
+    "foreground_app": null,
+    "app_category": null,
+    "current_device_usage": null,
+    "recent_app_activity": [],
+    "notification_count": null,
+    "notification_event": {
+      "available": null,
+      "notification_id": null,
+      "app_name": null,
+      "sender_id": null,
+      "title": null,
+      "body_summary": null,
+      "category": null,
+      "priority": null,
+      "timestamp": null,
+      "is_read": null,
+      "is_dismissed": null
+    },
+    "dnd_enabled": null,
+    "silent_mode": null,
+    "battery_level": null,
+    "charging_status": null
+  },
+
+  "calendar_and_schedule": {
+    "available": null,
+    "current_event": {
+      "event_id": null,
+      "title": null,
+      "description": null,
+      "start_time": null,
+      "end_time": null,
+      "location": null,
+      "attendees": [],
+      "event_type": null,
+      "is_ongoing": null
+    },
+    "upcoming_events": [],
+    "next_event_time": null,
+    "free_time_available": null,
+    "schedule_conflict": null,
+    "reminders": []
+  },
+
+  "wearable_and_health_signals": {
+    "available": null,
+    "heart_rate_bpm": null,
+    "resting_heart_rate_bpm": null,
+    "heart_rate_trend": null,
+    "heart_rate_variability_ms": null,
+    "blood_oxygen_percentage": null,
+    "skin_temperature_celsius": null,
+    "steps": null,
+    "steps_last_5_minutes": null,
+    "calories_burned": null,
+    "sleep_duration_hours": null,
+    "sleep_quality": null,
+    "stress_indicator": null,
+    "activity_recognition": null,
+    "workout_type": null,
+    "workout_duration_minutes": null,
+    "motion_level": null,
+    "posture": null,
+    "sensor_timestamp": null,
+    "sensor_quality": null
+  },
+
+  "location_and_mobility": {
+    "available": null,
+    "location": null,
+    "location_type": null,
+    "location_accuracy_meters": null,
+    "movement_state": null,
+    "speed_meters_per_second": null,
+    "travel_mode": null,
+    "destination": null,
+    "estimated_arrival_time": null,
+    "time_at_current_location_minutes": null,
+    "location_history_summary": null
+  },
+
+  "environment_and_iot": {
+    "available": null,
+    "ambient_noise_level": null,
+    "noise_classification": null,
+    "ambient_light_level": null,
+    "room_temperature_celsius": null,
+    "motion_detected": null,
+    "nearby_device_signals": [],
+    "connected_device_states": [],
+    "environment_summary": null
+  },
+
+  "user_interaction": {
+    "available": null,
+    "last_user_action": null,
+    "last_user_action_timestamp": null,
+    "recent_interactions": [],
+    "user_response_to_previous_notification": null,
+    "notification_dismissed": null,
+    "interaction_frequency": null
+  },
+
+  "temporal_context": {
+    "time_of_day": "morning",
+    "day_of_week": "Friday",
+    "is_weekend": false,
+    "is_holiday": null,
+    "local_timezone": "Asia/Kolkata",
+    "duration_of_current_situation_seconds": null
+  },
+
+  "persona_context": {
+    "memory_enriched": false,
+    "memory_references": [],
+    "retrieved_facts": [],
+    "context_source": null
+  },
+
+  "perception": {
+    "situation_type": "communication",
+    "situation_subtype": "incoming_call",
+    "detected_user_activity": null,
+    "detected_user_state": null,
+    "urgency": "unknown",
+    "importance": "unknown",
+    "confidence": 0.95,
+    "uncertainties": [],
+    "missing_information": [],
+    "reason_for_snapshot": "Incoming call detected"
+  },
+
+  "evidence": {
+    "event_ids": [
+      "EVT_001"
+    ],
+    "sources_used": [
+      "phone"
+    ],
+    "observation_count": 1,
+    "data_quality": "good"
+  },
+
+  "privacy_and_permissions": {
+    "consent_verified": true,
+    "permitted_sources": [
+      "phone"
+    ],
+    "restricted_fields_present": false
+  },
+
+  "other_signals": [
+    {
+      "source": "future_device",
+      "event_type": "custom_event",
+      "timestamp": null,
+      "observations": {},
+      "confidence": null
+    }
+  ]
+}
