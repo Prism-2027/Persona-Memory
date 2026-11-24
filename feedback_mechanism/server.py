@@ -6,8 +6,8 @@ from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect
 from fastapi.concurrency import run_in_threadpool
 from pydantic import BaseModel, Field, ValidationError
 from pymongo.errors import DuplicateKeyError
-from db import PERSONAS, EVENTS, URI
-from learning import reward, learn, blank_persona, ensure_schema, action_prior, calibration_summary
+from db import FEEDBACK_MODELS, EVENTS, URI
+from learning import reward, learn, blank_persona, ensure_schema, action_prior, calibration_summary\nfrom schema_adapter import sync_persona_schemas
 
 # ---------- contract v1 ----------
 class Executed(BaseModel):
@@ -33,17 +33,23 @@ def ingest(fb: dict) -> dict:
         if old and old.get("applied"):
             return {"feedback_id": fid, "status": "duplicate"}
     r = reward(fb)
-    for _ in range(8):                                             # optimistic concurrency on the _v field
-        doc = PERSONAS.find_one({"_id": fb["user_id"]}); new = doc is None
-    for _ in range(8):                                                           # optimistic concurrency on the _v field
-        doc = PERSONAS.find_one({"_id": fb["user_id"]}); new = doc is None
+    # Feedback model state is isolated from Persona Memory's original persona documents.
+    for _ in range(8):
+        doc = FEEDBACK_MODELS.find_one({"_id": fb["user_id"]})
+        new = doc is None
         p = doc or blank_persona(fb["user_id"])
         flt = {"_id": p["_id"], "_v": p["_v"]} if "_v" in p else {"_id": p["_id"], "_v": {"$exists": False}}
-        learn(p, fb, r); p["_v"] = p.get("_v", 0) + 1
-        try: res = PERSONAS.replace_one(flt, p, upsert=new)
-        except DuplicateKeyError: continue
-        if new or res.matched_count: break
-    else: return {"feedback_id": fid, "status": "conflict"}
+        learn(p, fb, r)
+        p["_v"] = p.get("_v", 0) + 1
+        try:
+            res = FEEDBACK_MODELS.replace_one(flt, p, upsert=new)
+        except DuplicateKeyError:
+            continue
+        if new or res.matched_count:
+            break
+    else:
+        return {"feedback_id": fid, "status": "conflict"}
+    sync_persona_schemas(fb, r, p)
     EVENTS.update_one({"_id": fid}, {"$set": {"applied": True, "reward": r}})
     return {"feedback_id": fid, "status": "ok", "reward": round(r, 3)}
 
@@ -68,7 +74,7 @@ def post_batch(fs: list[Feedback]):
 
 @app.get("/persona/{uid}/context")
 def persona_context(uid: str, counterpart: str | None = None, calendar: str = "free", stress: str = "low"):
-    p = PERSONAS.find_one({"_id": uid})
+    p = FEEDBACK_MODELS.find_one({"_id": uid})
     if p is None: raise HTTPException(404, "unknown user")
     ensure_schema(p)
     return {"user_id": uid, "version": p.get("_v"), "tie": p["ties"].get(counterpart), "values": p["values"],
@@ -76,7 +82,7 @@ def persona_context(uid: str, counterpart: str | None = None, calendar: str = "f
             "action_prior": action_prior(p, {"calendar": calendar, "stress": stress}), "calibration": calibration_summary(p)}
 
 @app.get("/health")
-def health(): return {"personas": PERSONAS.count_documents({}), "events": EVENTS.count_documents({})}
+def health(): return {"personas": FEEDBACK_MODELS.count_documents({}), "events": EVENTS.count_documents({})}
 
 # ---------- WebSocket: send one event (object) or many (array); get acks back in the same order ----------
 @app.websocket("/ws/feedback")
