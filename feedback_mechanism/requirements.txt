@@ -1,0 +1,7 @@
+fastapi
+uvicorn[standard]   # [standard] is needed for WebSocket support
+pymongo
+pydantic
+httpx
+websockets
+mongomock           # only for testing without a MongoDB server (MONGO_URI=mock)
