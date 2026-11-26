@@ -2,8 +2,10 @@
   "_id": "EP_045",
   "user_id": "USER_001",
   "situation_id": "SIT_001",
-  "timestamp": "2026-11-18T14:00:00+05:30",
+  "feedback_id": "ab7db57f-b1e7-4d31-be46-b6afcb4609d3",
+  "timestamp": "2026-11-26T18:29:55.389155+00:00",
   "entities_involved": ["PERSON_001"],
+
   "context_summary": {
     "situation_type": "communication",
     "situation_subtype": "incoming_call",
@@ -11,28 +13,82 @@
     "stress_level": "high",
     "trigger_summary": "Rahul called twice in 5 minutes during a calendar block"
   },
-  "outcome": {
-    "predicted_action": "ignore_call",
-    "avoid_actions": [
-    "Completely ignoring repeated calls without reassurance",
-    "Sending a generic automated carrier reply"
-  ],
-    "action_score" : 3,
-    "actual_user_action": "sent_quick_text_reassuring_and_giving_free_time",
-    "prediction_matched": false,
-    "user_rationale": "Didn't want Rahul to worry; wanted him to know I'd call back at 4 PM",
-    "emotional_valence": "guilty_then_relieved"
+
+  "decision_context": {
+    "signals_used": [],
+    "episodic_memories_used": []
   },
+
+  "decision_and_outcome": {
+    "recommendations": [
+      {
+        "rank": 1,
+        "action_id": "ACT_001",
+        "action_type": "send_message",
+        "description": "Send Rahul a reassuring message",
+        "preference_score": 0.95,
+        "reason": "The user has previously preferred reassuring Rahul during meetings.",
+        "selected": false
+      },
+      {
+        "rank": 2,
+        "action_id": "ACT_002",
+        "action_type": "silence_call",
+        "description": "Silence the incoming call",
+        "preference_score": 0.82,
+        "reason": "The user is likely occupied.",
+        "selected": true
+      },
+      {
+        "rank": 3,
+        "action_id": "ACT_003",
+        "action_type": "send_watch_notification",
+        "description": "Notify the user on their watch",
+        "preference_score": 0.7,
+        "reason": "This informs the user without interrupting the meeting.",
+        "selected": false
+      }
+    ],
+    "top_predicted_action": {
+      "action_id": "ACT_001",
+      "action_type": "send_message",
+      "preference_score": 0.95
+    },
+    "selected_action": {
+      "rank": 2,
+      "action_id": "ACT_002",
+      "action_type": "silence_call",
+      "assigned_rung": 2,
+      "selection_source": "system"
+    },
+    "execution": {
+      "parameters": {
+        "call_id": "CALL_001"
+      },
+      "status": "success",
+      "message": "Mock execution completed"
+    },
+    "evaluation": {
+      "top_1_matched": false,
+      "selected_rank": 2,
+      "user_feedback_score": 4,
+      "user_comment": null,
+      "emotional_valence": "positive"
+    }
+  },
+
   "follow_up": {
     "required": true,
-    "promised_action": "Call Rahul at 4 PM",
-    "deadline": "2026-11-18T16:00:00+05:30",
-    "status": "completed",
-    "completed_at": "2026-11-18T16:05:00+05:30"
+    "suggested_action": "Return Rahul's silenced call after the meeting",
+    "deadline": null,
+    "status": "pending",
+    "completed_at": null
   },
+
   "memory_impact": {
-    "updated_collections": ["relationships", "value_model"],
-    "learning_note": "User prioritizes reassuring close friends even during high-stress meetings"
+    "updated_collections": ["value_model"],
+    "learning_note": "System ranked send_message (#1, 0.95) above silence_call (#2, 0.82), but user selected silence_call and rated it 4/5. Recalibrate preference weights for silence_call during occupied meetings."
   },
-  "tags": ["incoming_call", "close_friend", "meeting_conflict", "high_stress"]
+
+  "tags": ["incoming_call", "close_friend", "meeting_conflict", "high_stress", "rank_2_selected"]
 }
