@@ -13,6 +13,10 @@
   },
   "outcome": {
     "predicted_action": "ignore_call",
+    "avoid_actions": [
+    "Completely ignoring repeated calls without reassurance",
+    "Sending a generic automated carrier reply"
+  ],
     "action_score" : 3,
     "actual_user_action": "sent_quick_text_reassuring_and_giving_free_time",
     "prediction_matched": false,
