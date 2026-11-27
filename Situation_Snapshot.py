@@ -247,7 +247,15 @@ class PersonaContext(BaseModel):
 
 
 class Perception(BaseModel):
-    situation_type: str
+    SituationType = Literal[
+    "communication",
+    "schedule",
+    "health_and_focus",
+    "finance_alert",
+    "environment",
+    "device_alert",
+    "other",  # Fallback for any unique/unseen situation
+]
     situation_subtype: str
     detected_user_activity: Optional[str] = None
     detected_user_state: Optional[str] = None
