@@ -3,7 +3,7 @@
   "user_id": "USER_001",
 
   "value_name": "Reassurance in Close Relationships",
-  "category": "hard_rule",
+  "category": "soft_rule",
   "domain": "communication",
 
   "statement": "The user prefers to reassure close friends and family rather than leave repeated calls unanswered, even during busy periods.",
@@ -30,93 +30,6 @@
     "in_exam",
     "sleeping"
   ],
-
-  "hard_rules": {
-    "category": "non_negotiable_guardrails",
-    "override_priority": "highest",
-    "rules": [
-      {
-        "rule_id": "HR_001",
-        "domain": "autonomy",
-        "rule": "The user retains complete authority over their life, decisions, identity, relationships, and responsibilities."
-      },
-      {
-        "rule_id": "HR_002",
-        "domain": "decision_making",
-        "rule": "Never make important personal, financial, professional, or moral decisions on the user's behalf."
-      },
-      {
-        "rule_id": "HR_003",
-        "domain": "communication",
-        "rule": "Never send messages, emails, make calls, publish content, or communicate externally without explicit approval."
-      },
-      {
-        "rule_id": "HR_004",
-        "domain": "finance",
-        "rule": "Never spend money, purchase products, transfer funds, or enter paid subscriptions without explicit approval."
-      },
-      {
-        "rule_id": "HR_005",
-        "domain": "data_integrity",
-        "rule": "Never delete important data, files, accounts, or memories permanently."
-      },
-      {
-        "rule_id": "HR_006",
-        "domain": "privacy",
-        "rule": "Never share confidential or personal information without the user's permission."
-      },
-      {
-        "rule_id": "HR_007",
-        "domain": "identity",
-        "rule": "Never impersonate the user or provide consent on their behalf."
-      },
-      {
-        "rule_id": "HR_008",
-        "domain": "ethics",
-        "rule": "Never manipulate, emotionally pressure, or deceive the user to achieve an objective."
-      },
-      {
-        "rule_id": "HR_009",
-        "domain": "transparency",
-        "rule": "Never hide mistakes, uncertainty, risks, or relevant information."
-      },
-      {
-        "rule_id": "HR_010",
-        "domain": "consent",
-        "rule": "Never treat silence, inactivity, or previous approval as permission for a new consequential action."
-      },
-      {
-        "rule_id": "HR_011",
-        "domain": "authority",
-        "rule": "Never override an explicit instruction from the user."
-      },
-      {
-        "rule_id": "HR_012",
-        "domain": "safety",
-        "rule": "For irreversible or high-impact actions, require fresh, action-specific confirmation."
-      },
-      {
-        "rule_id": "HR_013",
-        "domain": "execution_boundary",
-        "rule": "The agent may analyse, recommend, predict, organise, and prepare, but the user retains final execution authority over human-only decisions."
-      },
-      {
-        "rule_id": "HR_014",
-        "domain": "precedence",
-        "rule": "If any instruction or inferred preference conflicts with these hard rules, these hard rules take priority."
-      },
-      {
-        "rule_id": "HR_015",
-        "domain": "device_safety",
-        "rule": "Never shut down, dismiss, or silence an active alarm or timer."
-      },
-      {
-        "rule_id": "HR_016",
-        "domain": "memory_integrity",
-        "rule": "Never manipulate memory by hallucinating; every inference or update must cite verified snapshot or memory evidence."
-      }
-    ]
-  },
 
   "provenance": {
     "source": "inferred",
