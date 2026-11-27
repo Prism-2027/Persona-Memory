@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Literal
 from pydantic import BaseModel, Field
 
 
@@ -244,10 +244,8 @@ class PersonaContext(BaseModel):
     memory_references: List[str] = Field(default_factory=list)
     retrieved_facts: List[str] = Field(default_factory=list)
     context_source: Optional[str] = None
-
-
-class Perception(BaseModel):
-    SituationType = Literal[
+    
+SituationType = Literal[
     "communication",
     "schedule",
     "health_and_focus",
@@ -256,6 +254,9 @@ class Perception(BaseModel):
     "device_alert",
     "other",  # Fallback for any unique/unseen situation
 ]
+
+class Perception(BaseModel):
+    situation_type: SituationType
     situation_subtype: str
     detected_user_activity: Optional[str] = None
     detected_user_state: Optional[str] = None
